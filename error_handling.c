@@ -65,7 +65,6 @@ int	file_checker(char *file1, char *file2)
 {
 	int	fd;
 
-	(void)file1;
 	if (access(file1, F_OK) < 0 || access(file1, R_OK) < 0)
 		return (0);
 	if ((access(file2, F_OK) == 0) && (access(file2, W_OK) < 0))

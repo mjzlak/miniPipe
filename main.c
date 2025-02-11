@@ -12,7 +12,7 @@
 
 #include "include/pipex.h"
 
-//void	pipex_launcher(char *cmd1, char *cmd2);
+//void	pipex_launcher(char *cmd1, char *cmd2)
 
 int	main(int argc, char **argv, char **env)
 {

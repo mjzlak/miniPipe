@@ -16,15 +16,15 @@
 # include "../libft/libft.h"
 # include <fcntl.h>
 # include <unistd.h>
+# include <stdlib.h>
 
 // error_handling.c
-int		file_checker(char *file1, char *file2);
-int		command_checker(char *cmd1, char *cmd2, char **env);
-int		error_handling(int ac, char **av, char **env);
-// utils.c
-int		is_same_strn(char *str1, char *str2, int size);
-char	**find_path(char **env, char *path, int len_of_path);
-char	*ft_strcat(char *base, char *to_cat, char *add);
+int			file_checker(char *file1, char *file2);
+int			command_checker(char **av, char **env, int ac);
+int			error_handling(int ac, char **av, char **env);
+
+// utils/
+void	free_array(char **array);
 
 // main.c
 int		main(int argc, char **argv, char **env);

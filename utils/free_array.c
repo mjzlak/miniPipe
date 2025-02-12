@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mloeffer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 07:58:32 by mloeffer          #+#    #+#             */
-/*   Updated: 2025/02/11 07:58:34 by mloeffer         ###   ########.fr       */
+/*   Created: 2025/02/12 18:22:18 by mloeffer          #+#    #+#             */
+/*   Updated: 2025/02/12 18:22:19 by mloeffer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/pipex.h"
+#include "../include/pipex.h"
 
-int	main(int argc, char **argv, char **env)
+void	free_array(char **array)
 {
-	char	*cmd1;
-	char	*cmd2;
-	int		file1;
-	int		file2;
+	int	i;
 
-	if (!error_handling(argc, argv, env))
-		return (-1);
-	cmd1 = argv[2];
-	cmd2 = argv[3];
-	file1 = open(argv[1], O_RDONLY);
-	file2 = open(argv[4], O_WRONLY);
-	close(file1);
-	close(file2);
-	return (0);
+	i = 0;
+	while (array[i])
+		free(array[i++]);
+	free(array);
 }

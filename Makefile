@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = main.c \
 	   error_handling.c \
-	   error_handling_utils.c
+	   utils/free_array.c
 
 OBJS = $(SRCS:.c=.o)
 

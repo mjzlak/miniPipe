@@ -65,10 +65,9 @@ static int	is_a_valid_path(char **cmds, char **path, int i)
 				free_array(tokens);
 			return (0);
 		}
+		free_array(tokens);
 		i++;
 	}
-	if (tokens)
-		free_array(tokens);
 	return (1);
 }
 

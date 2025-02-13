@@ -28,15 +28,18 @@ typedef struct s_cmd
 
 // error_handling.c
 int			file_checker(char *file1, char *file2);
-int			command_checker(char **av, char **env, int ac);
+int			command_checker(char **av, char **env, int ac, int i);
 int			error_handling(int ac, char **av, char **env);
 
 // utils/free.c
 void	free_array(char **array);
-void	free_cmd_lst(struct s_cmd *lst);
+int		free_array_and_return_zero(char **array);
+void	free_cmd_lst(t_cmd *lst);
 t_cmd	*free_lst_and_return_null(t_cmd *lst);
-//utils/init_lst.c
+//	utils/init_lst.c
 t_cmd	*init_lst(char **argv, int argc, int i);
+// utils/path_checker.c
+int		is_a_valid_path(char **cmds, char **path, int i);
 
 // main.c
 int		main(int argc, char **argv, char **env);

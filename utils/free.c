@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_array.c                                       :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mloeffer <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mloeffer <mloeffer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 18:22:18 by mloeffer          #+#    #+#             */
-/*   Updated: 2025/02/12 18:22:19 by mloeffer         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:15:58 by mloeffer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ void	free_array(char **array)
 	while (array[i])
 		free(array[i++]);
 	free(array);
+}
+
+int	free_array_and_return_zero(char **array)
+{
+	free_array(array);
+	return (0);
 }
 
 void	free_cmd_lst(t_cmd *lst)

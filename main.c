@@ -14,18 +14,21 @@
 
 int	main(int argc, char **argv, char **env)
 {
-	char	*cmd1;
+	/*char	*cmd1;
 	char	*cmd2;
 	int		file1;
-	int		file2;
+	int		file2;*/
+	t_cmd	*line;
 
 	if (!error_handling(argc, argv, env))
 		return (-1);
-	cmd1 = argv[2];
+	line = init_lst(argv, argc, 2);
+	/*cmd1 = argv[2];
 	cmd2 = argv[3];
 	file1 = open(argv[1], O_RDONLY);
 	file2 = open(argv[4], O_WRONLY);
 	close(file1);
-	close(file2);
+	close(file2);*/
+	free_cmd_lst(line);
 	return (0);
 }

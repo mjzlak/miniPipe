@@ -21,3 +21,29 @@ void	free_array(char **array)
 		free(array[i++]);
 	free(array);
 }
+
+void	free_cmd_lst(t_cmd *lst)
+{
+	t_cmd	*temp;
+	int		i;
+
+	while (lst)
+	{
+		if (lst->cmd)
+		{
+			i = 0;
+			while (lst->cmd[i])
+				free(lst->cmd[i++]);
+			free(lst->cmd);
+		}
+		temp = lst->next;
+		free(lst);
+		lst = temp;
+	}
+}
+
+t_cmd	*free_lst_and_return_null(t_cmd *lst)
+{
+	free_cmd_lst(lst);
+	return (NULL);
+}

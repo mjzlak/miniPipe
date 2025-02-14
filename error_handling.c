@@ -12,20 +12,6 @@
 
 #include "include/pipex.h"
 
-static char	**find_path(char **env, char *path, int len_of_path)
-{
-	int		i;
-
-	i = 0;
-	while (env[i])
-	{
-		if (!ft_strncmp(path, env[i], len_of_path))
-			return (ft_split(env[i] + len_of_path, ":"));
-		i++;
-	}
-	return (NULL);
-}
-
 //check whitespaces, NULL value and if its an executable command
 int	command_checker(char **av, char **env, int ac, int i)
 {

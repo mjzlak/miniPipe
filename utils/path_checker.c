@@ -12,6 +12,50 @@
 
 #include "../include/pipex.h"
 
+char	**find_path(char **env, char *path, int len_of_path)
+{
+	int		i;
+
+	i = 0;
+	while (env[i])
+	{
+		if (!ft_strncmp(path, env[i], len_of_path))
+			return (ft_split(env[i] + len_of_path, ":"));
+		i++;
+	}
+	return (NULL);
+}
+
+char	*get_absolute_path(char *cmd, char **env)
+{
+	int		i;
+	char	**paths;
+	char	*full_path;
+	char	*tmp;
+
+	paths = find_path(env, "PATH=", 5);
+	if (!paths)
+		return (NULL);
+	i = 0;
+	while (paths[i])
+	{
+		__builtin_printf("Checking path: %s\n", paths[i]);
+		tmp = ft_strjoin(paths[i], "/");
+		full_path = ft_strjoin(tmp, cmd);
+		free(tmp);
+		if (access(full_path, X_OK) == 0)
+		{
+			__builtin_printf("Valid path found: %s\n", full_path);
+			free_array(paths);
+			return (full_path);
+		}
+		free(full_path);
+		i++;
+	}
+	free_array(paths);
+	return (NULL);
+}
+
 static char	**extract_absolute_path(char *path_to_try, char *cmd_to_try)
 {
 	char	*valid;

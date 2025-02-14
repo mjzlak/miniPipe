@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <sys/wait.h>
 
 typedef struct s_cmd
 {
@@ -40,6 +41,8 @@ t_cmd	*free_lst_and_return_null(t_cmd *lst);
 t_cmd	*init_lst(char **argv, int argc, int i);
 // utils/path_checker.c
 int		is_a_valid_path(char **cmds, char **path, int i);
+char	**find_path(char **env, char *path, int len_of_path);
+char	*get_absolute_path(char *cmd, char **env);
 
 // main.c
 int		main(int argc, char **argv, char **env);

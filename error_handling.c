@@ -6,7 +6,7 @@
 /*   By: mloeffer <mloeffer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 08:06:58 by mloeffer          #+#    #+#             */
-/*   Updated: 2025/02/13 15:47:23 by mloeffer         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:51:19 by mloeffer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	command_checker(char **av, char **env, int ac, int i)
 	if (!path)
 		return (0);
 	if (!is_a_valid_path(cmds, path, 0))
-		return (free_array_and_return_zero(path));
+		return (free_array_and_return_zero(path, 0));
 	free(cmds);
 	free_array(path);
 	return (1);
@@ -65,7 +65,7 @@ int	error_handling(int ac, char **av, char **env)
 {
 	if (ac < 5)
 		return (0);
-	if (!file_checker(av[1], av[4]))
+	if (!file_checker(av[1], av[ac - 1]))
 		return (0);
 	if (!command_checker(av, env, ac, 2))
 		return (0);

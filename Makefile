@@ -6,7 +6,7 @@
 #    By: mloeffer <mloeffer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/16 08:27:01 by mjzlak            #+#    #+#              #
-#    Updated: 2025/02/13 15:49:50 by mloeffer         ###   ########.fr        #
+#    Updated: 2025/02/18 17:16:35 by mloeffer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ SRCS = main.c \
 	   error_handling.c \
 	   utils/free.c \
 	   utils/path_checker.c \
-	   utils/init_lst.c
+	   utils/init_lst.c \
+	   utils/close.c \
+	   utils/do_and_return.c
 
 OBJS = $(SRCS:.c=.o)
 

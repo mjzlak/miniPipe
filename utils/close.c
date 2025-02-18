@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mloeffer <mloeffer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 18:22:18 by mloeffer          #+#    #+#             */
-/*   Updated: 2025/02/18 17:09:03 by mloeffer         ###   ########.fr       */
+/*   Created: 2025/02/18 16:44:48 by mloeffer          #+#    #+#             */
+/*   Updated: 2025/02/18 17:15:28 by mloeffer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 
-void	free_array(char **array)
+void    close_all_opened_files(int *files, int *pipe_files, char *error)
 {
-	int	i;
+    int i;
 
-	if (!array)
-		return ;
-	i = 0;
-	while (array[i])
-		free(array[i++]);
-	free(array);
-}
-
-void	free_cmd_lst(t_cmd *lst)
-{
-	t_cmd	*temp;
-	int		i;
-
-	while (lst)
-	{
-		if (lst->cmd)
-		{
-			i = 0;
-			while (lst->cmd[i])
-				free(lst->cmd[i++]);
-			free(lst->cmd);
-		}
-		temp = lst->next;
-		free(lst);
-		lst = temp;
-	}
+    i = 0;
+    if (!files && !pipe_files)
+        return ;
+    if (error)
+        perror(error);
+    while (files[i])
+    {
+        if (files[i] != -1)
+            close(files[i]);
+        i++;
+    }
+    i = 0;
+    while(pipe_files[i])
+    {
+        if (pipe_files[i] != -1)
+            close(pipe_files[i]);
+        i++;
+    }
 }

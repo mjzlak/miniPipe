@@ -6,7 +6,7 @@
 /*   By: mloeffer <mloeffer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:45:47 by mloeffer          #+#    #+#             */
-/*   Updated: 2025/02/13 16:16:38 by mloeffer         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:57:31 by mloeffer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,11 @@ char	*get_absolute_path(char *cmd, char **env)
 	i = 0;
 	while (paths[i])
 	{
-		__builtin_printf("Checking path: %s\n", paths[i]);
 		tmp = ft_strjoin(paths[i], "/");
 		full_path = ft_strjoin(tmp, cmd);
 		free(tmp);
 		if (access(full_path, X_OK) == 0)
 		{
-			__builtin_printf("Valid path found: %s\n", full_path);
 			free_array(paths);
 			return (full_path);
 		}
@@ -56,6 +54,7 @@ char	*get_absolute_path(char *cmd, char **env)
 	return (NULL);
 }
 
+// Extract the absolute path of the command for error handling
 static char	**extract_absolute_path(char *path_to_try, char *cmd_to_try)
 {
 	char	*valid;
@@ -79,7 +78,6 @@ static char	**extract_absolute_path(char *path_to_try, char *cmd_to_try)
 	return (extracted);
 }
 
-//check absolute path and relative path
 static int check_path(char **cmds, char **path, int i)
 {
     char **tokens;

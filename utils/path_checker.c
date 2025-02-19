@@ -6,7 +6,7 @@
 /*   By: mloeffer <mloeffer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:45:47 by mloeffer          #+#    #+#             */
-/*   Updated: 2025/02/19 17:57:31 by mloeffer         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:29:40 by mloeffer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,37 +78,37 @@ static char	**extract_absolute_path(char *path_to_try, char *cmd_to_try)
 	return (extracted);
 }
 
-static int check_path(char **cmds, char **path, int i)
+static int	check_path(char **cmds, char **path, int i)
 {
-    char **tokens;
-    int j;
-    int found;
+	char	**tokens;
+	int		j;
+	int		found;
 
-    j = 0;
-    found = 0;
-    while (path[j])
-    {
-        tokens = extract_absolute_path(path[j], cmds[i]);
-        if (tokens && tokens[0] && access(tokens[0], F_OK) == 0
-            && access(tokens[0], X_OK) == 0)
-        {
-            found = 1;
-            free_array(tokens);
-            return (1);
-        }
-        free_array(tokens);
-        j++;
-    }
-    return (0);
+	j = 0;
+	found = 0;
+	while (path[j])
+	{
+		tokens = extract_absolute_path(path[j], cmds[i]);
+		if (tokens && tokens[0] && access(tokens[0], F_OK) == 0
+			&& access(tokens[0], X_OK) == 0)
+		{
+			found = 1;
+			free_array(tokens);
+			return (1);
+		}
+		free_array(tokens);
+		j++;
+	}
+	return (0);
 }
 
-int is_a_valid_path(char **cmds, char **path, int i)
+int	is_a_valid_path(char **cmds, char **path, int i)
 {
-    while (cmds[i])
-    {
-        if (!check_path(cmds, path, i))
-            return (0);
-        i++;
-    }
-    return (1);
+	while (cmds[i])
+	{
+		if (!check_path(cmds, path, i))
+			return (0);
+		i++;
+	}
+	return (1);
 }

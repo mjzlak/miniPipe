@@ -6,7 +6,7 @@
 /*   By: mloeffer <mloeffer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:54:02 by mloeffer          #+#    #+#             */
-/*   Updated: 2025/02/13 18:32:13 by mloeffer         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:29:56 by mloeffer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static t_cmd	*init_last_node(char **argv, int argc)
 
 t_cmd	*add_cmd_to_lst(char **argv, int index)
 {
-	t_cmd *new_node;
+	t_cmd	*new_node;
 
 	new_node = malloc(sizeof(t_cmd));
 	if (!new_node)

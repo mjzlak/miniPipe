@@ -6,7 +6,7 @@
 /*   By: mloeffer <mloeffer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 08:06:58 by mloeffer          #+#    #+#             */
-/*   Updated: 2025/02/18 18:51:19 by mloeffer         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:27:16 by mloeffer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	command_checker(char **av, char **env, int ac, int i)
 	char	**path;
 	char	**cmds;
 
-	while(i++ < ac - 1)
+	while (i++ < ac - 1)
 		if (!av[i] || av[i][0] == ' ' || (av[i][0] >= 9 && av[i][0] <= 13))
 			return (0);
 	cmds = malloc(sizeof(char *) * (ac - 3 + 1));

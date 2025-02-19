@@ -30,7 +30,7 @@ typedef struct s_cmd
 	char			*infile;
 	char			*outfile;
 	struct s_cmd	*next;
-} t_cmd;
+}	t_cmd;
 
 // MAIN.C
 // @param	argc		Number of arguments
@@ -43,18 +43,18 @@ int		main(int argc, char **argv, char **env);
 // @param	file1		Input file
 // @param	file2		Output file
 // @return				0 if error, 1 if success
-int			file_checker(char *file1, char *file2);
+int		file_checker(char *file1, char *file2);
 // @param	av			Arguments
 // @param	env			Environment variables
 // @param	ac			Number of arguments
 // @param	i			Index
 // @return				0 if error, 1 if success
-int			command_checker(char **av, char **env, int ac, int i);
+int		command_checker(char **av, char **env, int ac, int i);
 // @param	ac			Number of arguments
 // @param	av			Arguments
 // @param	env			Environment variables
 // @return				0 if error, 1 if success
-int			error_handling(int ac, char **av, char **env);
+int		error_handling(int ac, char **av, char **env);
 
 //	UTILS/INIT_LST.C
 // @param	argv		Arguments
@@ -96,10 +96,10 @@ int		free_array_and_return_zero(char **array, int return_value);
 t_cmd	*free_lst_and_return_null(t_cmd *lst);
 // @param	files		Files to close
 // @param	pipe_files	Pipe files to close
-// @param	return_value	Return value
+// @param	value	Return value
 // @param	error		Error message to print
 // @return				Return value after closing files
-int		close_and_return(int *files, int *pipe_files, int return_value, char *error);
+int		close_and_return(int *files, int *pipe_files, int value, char *error);
 // @param	error		Error message to print
 // @param	return_value	Return value after printing error
 int		perror_and_return(char *error, int return_value);
